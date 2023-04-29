@@ -140,7 +140,7 @@ xhr.addEventListener('load', () => {
     filmHalls.forEach((item, index) => {
       let filmSeances = seances.filter(seance => seance[seance_filmid] === filmId && seance[seance_hallid] === item[hallId]);
       let hallName = item[hallName];
-      let hallNumber = hallName.substring(hallName.length - 1)
+      let hallNumber = hallName.substring(hallName.length - 1);
       movie.querySelectorAll('.movie-seances__hall-title')[index].textContent = 'Зал ' + hallNumber;
       movie.querySelectorAll('.movie-seances__hall')[index].setAttribute('data-hall-name', hallNumber);
       movie.querySelectorAll('.movie-seances__hall')[index].setAttribute('data-hall-id', item[hallId]);
@@ -154,7 +154,7 @@ xhr.addEventListener('load', () => {
         seanceTime.textContent = seanceTimeStart;
         seanceTime.setAttribute('data-seance-start', seanceTimeStart);
         let seanceId = seance[seance_id];
-        seanceTime.setAttribute('data-seance-id', seanceId);;
+        seanceTime.setAttribute('data-seance-id', seanceId);
       }); 
     });
   }
@@ -182,7 +182,7 @@ xhr.addEventListener('load', () => {
         let initialValue = +seance.dataset.seanceTimestamp;
         value = initialValue + (86400 * activeNumberPage);
         seance.setAttribute('data-seance-timestamp', value);
-      }
+      });
     });
 
     allSeances.forEach(seance => {
