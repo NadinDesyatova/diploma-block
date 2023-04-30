@@ -186,7 +186,9 @@ xhr.addEventListener('load', () => {
     });
 
     allSeances.forEach(seance => {
-      seance.addEventListener('click', () => {
+      seance.addEventListener('click', (e) => {
+        e.preventDefault();
+
         let storedSeanceId = seance.dataset.seanceId;
         localStorage.setItem('seanceId', storedSeanceId);
         let storedTimestamp = seance.dataset.seanceTimestamp;
@@ -200,7 +202,8 @@ xhr.addEventListener('load', () => {
         let storedHallId = hallOfSeance.dataset.hallId;
         localStorage.setItem('hallId', storedHallId);
         let storedHallName = hallOfSeance.dataset.hallName;
-        localStorage.setItem('hallName', storedHallName);    
+        localStorage.setItem('hallName', storedHallName);
+        location = 'hall.html';    
       });
     });
   } 

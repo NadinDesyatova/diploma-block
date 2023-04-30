@@ -54,7 +54,7 @@ xhr.addEventListener('load', () => {
 
     let seatsLocation = '';
     let selectedSeats = Array.from(configHall.querySelectorAll('.conf-step__chair').filter(seat => seat.classList.contains('conf-step__chair_disabled') === false && seat.classList.contains('conf-step__chair_taken') === false)); 
-    selectedSeats.reduce((accum, seat, index) => {
+    selectedSeats.reduce((accum, seat, index, array) => {
       accum += +seat.dataset.seatPrice;
       let rowOfSeat = seat.closest('.conf-step__row');
       let numberOfRow = rowOfSeat.dataset.row;
@@ -67,6 +67,9 @@ xhr.addEventListener('load', () => {
       
       localStorage.setItem('seatsLocation', seatsLocation);
       localStorage.setItem('costOfTickets', accum);
+      if (index === array.length - 1) {
+        location = 'payment.html';
+      }
     }, 0);
   });
 });
